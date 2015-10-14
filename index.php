@@ -1,6 +1,7 @@
 <?php
 include_once 'config/config_app.php';
 include_once 'controller/tareas_controller.php';
+include_once 'controller/login_controller.php';
 //Tenga la clave action
 
 
@@ -27,6 +28,14 @@ else {
     case ConfigApp::$ACTION_REALIZAR_TAREA:
       $tareasController = new TareasController();
       $tareasController->realizarTarea();
+      break;
+    case ConfigApp::$ACTION_LOGIN:
+      $loginController = new LoginController();
+      $loginController->login();
+      break;
+    case ConfigApp::$ACTION_LOGOUT:
+      $loginController = new LoginController();
+      $loginController->logout();
       break;
     default:
       echo 'Pagina no encontrada';

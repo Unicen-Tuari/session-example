@@ -11,9 +11,10 @@ function __construct(){
   $this->errores = array();
 }
 
-function mostrar($tareas){
+function mostrar($tareas, $usuario){
   $this->smarty->assign('errores', $this->errores);
   $this->smarty->assign('tareas', $tareas);
+  $this->smarty->assign('usuario', $usuario);
   $this->smarty->display('index.tpl');
 }
 

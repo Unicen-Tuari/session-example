@@ -10,16 +10,21 @@ class TareasController {
   function __construct() {
     $this->model = new TareasModel();
     $this->view = new TareasView();
+    session_start();
+    if (!isset($_SESSION['email'])){
+      header("Location: index.php?action=login");
+      die();
+    }
   }
 
   function mostrarHome(){
-    $this->view->mostrar($this->model->getTareas());
+      $this->view->mostrar($this->model->getTareas(),$_SESSION['email']);
   }
 
   function agregarTarea(){
     if(isset($_REQUEST['task'])){
         $this->model->agregarTarea($_REQUEST['task']);
-      }
+    }
     else{
       $this->view->mostrarError('La tarea que intenta crear esta vacia');
     }
