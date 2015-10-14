@@ -8,7 +8,7 @@
 
   <body>
     <div class="container">
-
+      <span class="pull-right">Hola <strong>{$usuario}</strong>! - <a href="index.php?action=logout">Logout</a></span>
       <div class="page-header">
         <h1>Lista de Tareas</h1>
       </div>
